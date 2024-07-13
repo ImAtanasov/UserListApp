@@ -1,0 +1,5 @@
+Flask~=2.2.3
+Flask-SQLAlchemy
+Flask-WTF
+WTForms~=3.0.1
+email_validator

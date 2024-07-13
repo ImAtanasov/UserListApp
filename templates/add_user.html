@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Add User</h1>
+<form method="POST" action="{{ url_for('add_user') }}">
+    {{ form.hidden_tag() }}
+
+    <div class="form-group">
+        {{ form.name.label(class="form-control-label") }}
+        {{ form.name(class="form-control {% if form.name.errors %}is-invalid{% endif %}", id="name") }}
+        {% if form.name.errors %}
+            <div class="invalid-feedback">
+                {% for error in form.name.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        {{ form.email.label(class="form-control-label") }}
+        {{ form.email(class="form-control {% if form.email.errors %}is-invalid{% endif %}", id="email") }}
+        {% if form.email.errors %}
+            <div class="invalid-feedback">
+                {% for error in form.email.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        {{ form.phone.label(class="form-control-label") }}
+        {{ form.phone(class="form-control {% if form.phone.errors %}is-invalid{% endif %}", id="phone") }}
+        {% if form.phone.errors %}
+            <div class="invalid-feedback">
+                {% for error in form.phone.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        {{ form.submit(class="btn btn-primary") }}
+        <button type="button" class="btn btn-secondary" onclick="history.back()">Back</button>
+    </div>
+</form>
+{% endblock %}
